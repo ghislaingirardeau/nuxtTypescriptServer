@@ -29,7 +29,7 @@
 export default defineEventHandler(async (event) => {
   return new Promise((resolve, reject) => {
     event.context.db.execute(
-      "SELECT * FROM chien",
+      "SELECT * FROM associations",
       function (err: Error, results: []) {
         if (err) {
           reject({
