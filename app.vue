@@ -4,6 +4,7 @@
       <NuxtLink to="/" class="col-3">home</NuxtLink>
       <NuxtLink to="/test" class="col-3">test</NuxtLink>
       <NuxtLink to="/server" class="col-3">server</NuxtLink>
+      <NuxtLink to="/ws" class="col-3">websocket</NuxtLink>
       <div class="col-3">
         <button @click="switchTheme">
           {{ appConfig.theme.dark ? "Light" : "Dark" }}

@@ -1,7 +1,7 @@
 import * as mysql from "mysql2";
 
-// CONFIG FOR DEPLOYED SQL DB
-export default defineEventHandler(async (event) => {
+// CONFIG FOR DEPLOYED SQL DB, exemple avec les bons dons
+/* export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   if (
     event.node.req.url === "/api/mysql" ||
@@ -15,10 +15,10 @@ export default defineEventHandler(async (event) => {
       database: config.public.DEPLOYEDDBDATABASE,
     });
   }
-});
+}); */
 
-// CONFIG FOR LOCAL SQL DB
-/* export default defineEventHandler(async (event) => {
+// CONFIG FOR LOCAL SQL DB = not working on deployment
+export default defineEventHandler(async (event) => {
   // CHECK HERE THE AUTH TOKEN FOR INSTANCE event.node.req.headers.authorization
 
   const config = useRuntimeConfig();
@@ -35,9 +35,9 @@ export default defineEventHandler(async (event) => {
       database: config.public.DBDATABASE,
     });
   }
-}); */
+});
 
-// TO CREATE A POOL CONNECTION
+// TO CREATE SQL POOL CONNECTION
 /* event.context.db = mysql.createPool({
       host: config.public.DBHOST,
       port: 3306,

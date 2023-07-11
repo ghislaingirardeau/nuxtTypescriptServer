@@ -1,15 +1,6 @@
 <template>
   <div class="container">
     <div class="row my-5">
-      <h1>Connect to WebSocket</h1>
-      <div class="col-6">
-        <button type="button" @click="connectToWS" class="btn btn-primary">
-          Primary
-        </button>
-      </div>
-    </div>
-
-    <div class="row my-5">
       <h1>Fetch from dabatabse Mysql with GET</h1>
       <div class="col-6">
         <button type="button" @click="MysqlData" class="btn btn-primary">
@@ -58,16 +49,6 @@ const fromApi = ref();
 const resultsFromDb: Ref<any> = ref([]);
 const errorFromDb: Ref<string | undefined> = ref("");
 let ws: Ref<null | WebSocket> = ref(null);
-const connectToWS = async () => {
-  let wss;
-  wss = new WebSocket("ws://webpushapi-production.up.railway.app/");
-  wss.onopen = (event: any) => {
-    console.log("Successfully connected");
-  };
-  wss.onmessage = (event) => {
-    console.log(event.data);
-  };
-};
 
 const MysqlData = async (e: Event) => {
   resultsFromDb.value = [];
