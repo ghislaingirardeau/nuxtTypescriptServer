@@ -17,7 +17,7 @@ let ws: Ref<null | WebSocket> = ref(null);
 const message = ref("");
 const connectToWS = async () => {
   /*  wss = new WebSocket("ws://webpushapi-production.up.railway.app/"); */
-  ws.value = new WebSocket(`wss://${window.location.host}`);
+  ws.value = new WebSocket(`ws://localhost:8080`);
 
   ws.value.onopen = (event: any) => {
     console.log("Successfully connected");
