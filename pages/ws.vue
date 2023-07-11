@@ -17,7 +17,11 @@ let ws: Ref<null | WebSocket> = ref(null);
 const message = ref("");
 const connectToWS = async () => {
   /*  wss = new WebSocket("ws://webpushapi-production.up.railway.app/"); */
-  ws.value = new WebSocket(`ws://${window.location.host}`);
+  ws.value = new WebSocket(
+    `${window.location.protocol === "https" ? "wss" : "ws"}://${
+      window.location.host
+    }`
+  );
 
   ws.value.onopen = (event: any) => {
     console.log("Successfully connected");
