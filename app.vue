@@ -5,6 +5,7 @@
       <NuxtLink to="/test" class="col-3">test</NuxtLink>
       <NuxtLink to="/server" class="col-3">server</NuxtLink>
       <NuxtLink to="/ws" class="col-3">websocket</NuxtLink>
+      <NuxtLink to="/memoJs" class="col-3">JS memo</NuxtLink>
       <div class="col-3">
         <button @click="switchTheme">
           {{ appConfig.theme.dark ? "Light" : "Dark" }}

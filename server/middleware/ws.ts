@@ -15,7 +15,7 @@ declare global {
   var wss: WebSocketServer;
 }
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   if (globalThis.wss) return;
 
   globalThis.wss = new WebSocketServer({
