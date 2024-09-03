@@ -24,9 +24,15 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // ssr est true par defaut
-    // tuto : C:\Users\ghisl\OneDrive\Documents\Formation\Memo global\vuejs
-    '/swr': { swr: true }, // WORK ON DEPLOY NETLIFY
-    '/static': { static: true }, // WORK ON DEPLOY NETLIFY
+    /// WORK ON DEPLOY NETLIFY - open code source to see change
+    // SWR
+    // swr page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
+    // swr: true, alors cached until API response changes
+    '/swr': { swr: 60 },
+    // STATIC
+    '/static': { static: true },
+    // SPA
+    // spa dashboard renders only on client-side
     '/spa': { ssr: false },
     // Add redirect headers
     /* '/old-page': { redirect: '/new-page' },
