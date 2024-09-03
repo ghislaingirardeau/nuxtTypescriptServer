@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     // swr: true, alors cached until API response changes
     '/swr': { swr: 60 },
     // STATIC
+    // as SSR, still working on last version nuxt ??
     '/static': { static: true },
     // SPA
     // spa dashboard renders only on client-side
@@ -54,12 +55,14 @@ export default defineNuxtConfig({
     }, */
   },
   runtimeConfig: {
+    DBHOST: process.env.DBHOST,
+    DBPORT: process.env.DBPORT,
+    DBUSER: process.env.DBUSER,
+    DBPASSWORD: process.env.DBPASSWORD,
+    DBDATABASE: process.env.DBDATABASE,
     public: {
-      DBHOST: process.env.DBHOST,
-      DBPORT: process.env.DBPORT,
-      DBUSER: process.env.DBUSER,
-      DBPASSWORD: process.env.DBPASSWORD,
-      DBDATABASE: process.env.DBDATABASE,
+      // VISIBLE SUR CODE SOURCE
+      apiBase: '/api',
     },
   },
   modules: ['@nuxt/eslint'],

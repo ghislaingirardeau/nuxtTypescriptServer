@@ -1,4 +1,4 @@
-import * as mysql from "mysql2";
+import * as mysql from 'mysql2'
 
 // CONFIG FOR DEPLOYED SQL DB, exemple avec les bons dons
 /* export default defineEventHandler(async (event) => {
@@ -21,21 +21,21 @@ import * as mysql from "mysql2";
 export default defineEventHandler(async (event) => {
   // CHECK HERE THE AUTH TOKEN FOR INSTANCE event.node.req.headers.authorization
 
-  const config = useRuntimeConfig();
+  const config = useRuntimeConfig()
   if (
-    event.node.req.url === "/api/mysql" ||
-    event.node.req.url === "/api/sql"
+    event.node.req.url === '/api/mysql' ||
+    event.node.req.url === '/api/sql'
   ) {
-    console.log("New DB request");
+    console.log('New DB request')
     event.context.db = mysql.createConnection({
-      host: config.public.DBHOST,
+      host: config.DBHOST,
       port: 3306,
-      user: config.public.DBUSER,
-      password: config.public.DBPASSWORD,
-      database: config.public.DBDATABASE,
-    });
+      user: config.DBUSER,
+      password: config.DBPASSWORD,
+      database: config.DBDATABASE,
+    })
   }
-});
+})
 
 // TO CREATE SQL POOL CONNECTION
 /* event.context.db = mysql.createPool({

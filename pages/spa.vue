@@ -5,7 +5,7 @@
     <h3>Exemple: Admin dashboard renders only on client-side</h3>
     <p>
       En inspectant le code source, le body devient alors vide, je ne vois pas
-      les infos
+      les info
     </p>
   </div>
 </template>
