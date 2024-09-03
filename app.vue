@@ -10,6 +10,8 @@
       <NuxtLink to="/spa" class="col-2"> Spa </NuxtLink>
       <NuxtLink to="/swr" class="col-2"> Swr </NuxtLink>
       <NuxtLink to="/static" class="col-2"> Static </NuxtLink>
+      <NuxtLink to="/blog" class="col-2"> ISR </NuxtLink>
+
       <div class="col-2">
         <button @click="switchTheme">
           {{ appConfig.theme.dark ? 'Light' : 'Dark' }}

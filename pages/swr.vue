@@ -8,8 +8,7 @@
     </h3>
     <p>
       Ouvrir le code source pour voir les différences <br />
-      La date ne se rafraichit pas à chaque fois que j'ouvre le code source car
-      mise en cache
+      La date ne se rafraichit pas meme que je reload le navigateur
     </p>
   </div>
 </template>

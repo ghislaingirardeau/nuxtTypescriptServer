@@ -34,6 +34,9 @@ export default defineNuxtConfig({
     // SPA
     // spa dashboard renders only on client-side
     '/spa': { ssr: false },
+    // ISR
+    // Blog post page generated on demand once until next deployment, cached on CDN
+    '/blog/**': { isr: true },
     // Add redirect headers
     /* '/old-page': { redirect: '/new-page' },
     '/old-page2': { redirect: { to: '/new-page', statusCode: 302 } } */
@@ -57,10 +60,6 @@ export default defineNuxtConfig({
       DBUSER: process.env.DBUSER,
       DBPASSWORD: process.env.DBPASSWORD,
       DBDATABASE: process.env.DBDATABASE,
-      DEPLOYEDDBHOST: process.env.DEPLOYEDDBHOST,
-      DEPLOYEDDBUSER: process.env.DEPLOYEDDBUSER,
-      DEPLOYEDDBPASSWORD: process.env.DEPLOYEDDBPASSWORD,
-      DEPLOYEDDBDATABASE: process.env.DEPLOYEDDBDATABASE,
     },
   },
   modules: ['@nuxt/eslint'],
