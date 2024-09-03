@@ -1,43 +1,13 @@
 <template>
   <div class="container">
     <h1>Compteur</h1>
-    <button id="compteur">Incréemnter <span>0</span></button>
+    <button id="compteur">Incrémenter <span>0</span></button>
 
     <button @click="enumSteps">{{ step }}</button>
   </div>
 </template>
 
 <script setup lang="ts">
-// ALIAS TO DEFINE SO CAN BE RESUSE
-type User1 = { name: string; age: number; date?: number }; // date on optionnal
-
-interface User2 {
-  name: string;
-  id: number;
-}
-interface User2 {
-  age: number;
-}
-// OR TO COMBINE INTERFACE
-interface UserBase {
-  name: string;
-  id: number;
-}
-interface UserExt extends UserBase {
-  age: number;
-}
-
-type LockStates = "locked" | "unlocked";
-const lockStates: LockStates = "unlocked";
-
-// INTERFACE PERMET DE RESTER OUVERT ET D'AJOUTER DES PROPRIETES
-// TYPE USE FOR SIMPLE TYPE AS STRING, NUmber, BOOLEAN
-
-type NumberArray = Array<string>;
-const arr3: NumberArray = ["test", "3"];
-
-const arr1: string[] = ["test", "3"];
-const arr2 = ["test", "3"];
 let user: User1 = {
   name: "gigi",
   age: 123,
@@ -89,28 +59,6 @@ const result = arrayReadOnly([1, 2, 3]);
 const res = add([5, 8]);
 
 console.log(res);
-
-// DYNAMIC TYPE INSIDE INTERFACE
-
-const test32 = "test";
-
-interface Backpack<Type> {
-  name: Type;
-  add: (obj: Type) => void;
-  get: () => Type;
-}
-const backpack: Backpack<string> = {
-  name: "gigi",
-  add(obj) {
-    console.log(obj);
-  },
-  get() {
-    return this.name;
-  },
-};
-
-console.log(backpack.name);
-backpack.add("test");
 
 // CLASS
 class CollectionTest<T> {
