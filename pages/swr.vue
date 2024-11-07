@@ -8,7 +8,9 @@
     </h3>
     <p>
       Ouvrir le code source pour voir les différences <br />
-      La date ne se rafraichit pas meme que je reload le navigateur
+      Lors du reload, la date ne se rafraichit pas car mise en cache suivant les
+      conditions dans le nuxt config. Si par exemple, mise en cache de 60
+      secondes, la date se rafraihira après 60 secondes
     </p>
   </div>
 </template>

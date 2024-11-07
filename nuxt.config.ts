@@ -24,10 +24,12 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // ssr est true par defaut
-    /// WORK ON DEPLOY NETLIFY - open code source to see change
+    // https://nuxt.com/docs/guide/concepts/rendering
+    /// open code source to see change
     // SWR
     // swr page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
     // swr: true, alors cached until API response changes
+    // après 60s si recharge la page, la date a changé
     '/swr': { swr: 60 },
     // STATIC
     // as SSR, still working on last version nuxt ??

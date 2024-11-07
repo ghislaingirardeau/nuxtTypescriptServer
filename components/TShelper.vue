@@ -9,18 +9,22 @@
 
 <script setup lang="ts">
 let user: User1 = {
-  name: "gigi",
+  name: 'gigi',
   age: 123,
 };
 let user2: UserExt = {
-  name: "gigi",
+  name: 'gigi',
   id: 123,
   age: 654,
 };
 const d: null = null;
-const objWithDynKey: { [key: string]: string } = {
-  name: "gigi",
-  age: "35",
+
+interface ObjWithDynKey {
+  [key: string]: string;
+}
+const objWithDynKey: ObjWithDynKey = {
+  name: 'gigi',
+  age: '35',
 };
 const date = new Date();
 const fct: (params: number) => number = (params: number): number => {
@@ -44,7 +48,7 @@ function generics<ArgType extends string>(arg: ArgType): string {
   return arg.toUpperCase();
 }
 
-console.log(generics("test generic"));
+console.log(generics('test generic'));
 
 const add = (a: number[]): number[] => {
   return a.map((x) => x * 2);
@@ -81,7 +85,7 @@ console.log(a, a.first());
 // mais plus tard avec le narrowing
 function unknown(params: unknown) {
   if (params instanceof HTMLInputElement) {
-    params.value = "hello";
+    params.value = 'hello';
   }
 }
 
@@ -92,7 +96,7 @@ const readOnlyObj = { private: true, public: false } as const;
 type List1 = [string, string];
 type List2 = [number, number];
 
-const arrayLimitLength1: List1 = ["hello", "world"];
+const arrayLimitLength1: List1 = ['hello', 'world'];
 const arrayLimitLength2: List2 = [123, 45];
 
 function merge<T extends unknown[], U extends unknown[]>(a: T, b: U) {
@@ -104,10 +108,10 @@ const arrayMerge = merge(arrayLimitLength1, arrayLimitLength2);
 // STEPS
 
 enum STEPS {
-  Intro = "Intro",
-  Selection = "Selection",
-  Panier = "Panier",
-  Payment = "Payment",
+  Intro = 'Intro',
+  Selection = 'Selection',
+  Panier = 'Panier',
+  Payment = 'Payment',
 }
 
 let step: Ref<STEPS> = ref(STEPS.Intro);
@@ -142,7 +146,7 @@ class Poisson {
 }
 class Chat {
   cri() {
-    return "miaou";
+    return 'miaou';
   }
 }
 
@@ -150,7 +154,7 @@ type AnimalCri<T> = T extends { cri: () => infer U } ? U : never;
 
 type A = AnimalCri<Poisson>; // return type de la methode dans la class
 type B = AnimalCri<Chat>;
-type C = ReturnType<Poisson["cri"]>;
+type C = ReturnType<Poisson['cri']>;
 const infer: C = true;
 
 //Type utilitaire
@@ -161,11 +165,11 @@ interface TypeUtilitaire {
 }
 
 const utilitaire: Required<TypeUtilitaire> = {
-  name: "gigi",
-  last: "test",
+  name: 'gigi',
+  last: 'test',
 };
 
-const tesla = ["model 3", "model 3", "model X", "model Y"];
+const tesla = ['model 3', 'model 3', 'model X', 'model Y'];
 type Length<T> = T extends { length: infer Length } ? Length : never;
 type First<T extends any[]> = T extends { length: 0 } ? never : T[0];
 
@@ -179,7 +183,7 @@ const arrayFirst: teslaFirst = tesla[0];
 type RGB = [red: number, green: number, blue: number];
 const palette = {
   red: [255, 0, 0],
-  green: "#00ff00",
+  green: '#00ff00',
   bleu: [0, 0, 255],
   //  ~~~~ The typo is now correctly detected
 } satisfies Record<string, string | RGB>;
@@ -193,7 +197,7 @@ type HTMLAttr = {
   };
   input: {
     name: string;
-    type: "number" | "text";
+    type: 'number' | 'text';
   };
   textarea: {
     cols: number;
@@ -208,25 +212,25 @@ type HTMLNode<T> = {
 
 type HTMLForm<T> = HTMLNode<T>;
 
-const img: HTMLNode<"img"> = {
-  tagName: "img",
-  class: ".demo",
+const img: HTMLNode<'img'> = {
+  tagName: 'img',
+  class: '.demo',
   attributes: {
-    alt: "demo",
+    alt: 'demo',
   },
 };
 
-const input: HTMLNode<"input"> = {
-  tagName: "input",
-  class: ".demo",
+const input: HTMLNode<'input'> = {
+  tagName: 'input',
+  class: '.demo',
   attributes: {
-    name: "demo",
-    type: "number",
+    name: 'demo',
+    type: 'number',
   },
 };
 
-const textarea: HTMLNode<"textarea"> = {
-  tagName: "textarea",
+const textarea: HTMLNode<'textarea'> = {
+  tagName: 'textarea',
   attributes: {
     cols: 12,
   },
