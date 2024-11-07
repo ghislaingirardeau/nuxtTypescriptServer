@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   const duration = getRouterParam(event, 'duration');
   await sleep(Number(duration));
-  return `Hello ${duration}`;
+  return await $fetch('https://jsonplaceholder.typicode.com/posts/1');
 });
 
 function sleep(milliseconds = 0) {

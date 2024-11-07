@@ -161,3 +161,30 @@ console.timeEnd();
 ```
 
 La requete prendra ainsi (3s, la plus longue) au lieu de 5s !
+
+### Interceptor
+
+A définir sur le call local ou en global dans un plugins
+
+```js
+const { data, status, error, refresh, clear } = await useFetch(
+  '/api/auth/login',
+  {
+    onRequest({ request, options }) {
+      // Set the request headers
+      // note that this relies on ofetch >= 1.4.0 - you may need to refresh your lockfile
+      options.headers.set('Authorization', '...');
+    },
+    onRequestError({ request, options, error }) {
+      // Handle the request errors
+    },
+    onResponse({ request, response, options }) {
+      // Process the response data
+      localStorage.setItem('token', response._data.token);
+    },
+    onResponseError({ request, response, options }) {
+      // Handle the response errors
+    },
+  }
+);
+```
