@@ -16,7 +16,7 @@ useAsyncData();
 
 - useAsyncData:
   Peut s'utiliser en l'associant avec $fetch
-  `useAsyncData(async() => await $fetch(url))` => cette écriture revient au meme résultat qu'écrire useFetch()
+  `useAsyncData(async() => await $fetch(url))` => cette écriture revient au meme résultat qu'écrire `useFetch()`
   Va surtout etre utilise pour récupérer des données non via une url mais via une API third party (ex: supabase, firebase...)
 
 ## UseFetch

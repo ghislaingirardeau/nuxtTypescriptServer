@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-// bloquant
+// bloquant, le navigateur ne charge pas de suite la page
 // const { data, error } = await useFetch('/api/5000');
 
 // not block

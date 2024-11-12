@@ -22,6 +22,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   routeRules: {
     // ssr est true par defaut
     // https://nuxt.com/docs/guide/concepts/rendering
@@ -44,6 +45,7 @@ export default defineNuxtConfig({
     /* '/old-page': { redirect: '/new-page' },
     '/old-page2': { redirect: { to: '/new-page', statusCode: 302 } } */
   },
+
   vite: {
     define: {
       'process.env.DEBUG': false,
@@ -56,6 +58,7 @@ export default defineNuxtConfig({
       },
     }, */
   },
+
   runtimeConfig: {
     DBHOST: process.env.DBHOST,
     DBPORT: process.env.DBPORT,
@@ -67,10 +70,14 @@ export default defineNuxtConfig({
       apiBase: '/api',
     },
   },
+
   modules: ['@nuxt/eslint'],
+
   eslint: {
     config: {
       stylistic: true,
     },
   },
+
+  compatibilityDate: '2024-11-12',
 })
